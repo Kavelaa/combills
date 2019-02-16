@@ -1,0 +1,9 @@
+<navigator class="bill-intro" url="bill-detail/bill-detail" bindtap="toBillDetail">
+  <view class="left">
+    <text class="name">{{bill.name}}</text>
+    <text class="update-time">最后确认时间:{{bill.details[0].intelTime}}</text>
+  </view>
+  <view class="right">
+    <text>{{bill.allCost}}元</text>
+  </view>
+</navigator>

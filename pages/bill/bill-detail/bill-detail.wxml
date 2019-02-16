@@ -1,0 +1,11 @@
+<view>
+  <view class='name'>
+    <text >{{bill.name}}</text>
+  </view>
+  <view class='detail'>
+    <block wx:for='{{bill.details}}' wx:for-item='detail' wx:key='{{index}}'>
+      <bill-single-detail detail='{{detail}}'></bill-single-detail>
+    </block>
+  </view>
+  <navigator class='newBill' url='new-bill-detail/new-bill-detail'>+</navigator>
+</view>

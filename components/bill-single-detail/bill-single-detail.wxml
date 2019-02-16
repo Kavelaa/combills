@@ -1,0 +1,4 @@
+<view class='bill-single-detail'>
+  <text class='amount'>{{detail.amount}}元</text>
+  <text class='time'>{{detail.intelTime}}</text>
+</view>

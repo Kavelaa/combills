@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bill-single-detail": "/components/bill-single-detail/bill-single-detail"
+  },
+  "navigationBarTitleText": "账单信息"
+}

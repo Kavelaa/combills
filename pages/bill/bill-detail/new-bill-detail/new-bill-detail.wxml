@@ -1,0 +1,9 @@
+<view>
+  <form bindsubmit='bindSubmit'>
+    <view class='wrapper'>
+      <text>消费额</text>
+      <input name='amount' class='input' type='digit' placeholder='本次消费'></input>
+    </view>
+    <button class='button' form-type='submit'>确定</button>
+  </form>
+</view>

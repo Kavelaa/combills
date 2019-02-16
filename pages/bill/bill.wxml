@@ -1,0 +1,9 @@
+<view class="page">
+  <text wx:if="{{noBill}}" class="common">还没有账单，去新建一个吧！</text>
+  <view wx:else>
+    <block wx:for="{{bills}}" wx:for-item="bill" wx:key="time">
+      <bill-intro bill="{{bill}}"></bill-intro>
+    </block>
+  </view>
+  <navigator class='newBill' url='new/new'>+</navigator>
+</view>

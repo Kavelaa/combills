@@ -2,7 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/bills/bills"
+    "pages/userinfo/userinfo",
+    "pages/bill/bill",
+    "pages/bill/new/new",
+    "pages/bill/bill-detail/bill-detail",
+    "pages/bill/bill-detail/new-bill-detail/new-bill-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,11 +17,11 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/bill/bill",
         "text": "账单"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/userinfo/userinfo",
         "text": "我的"
       }
     ],

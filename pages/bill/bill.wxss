@@ -1,0 +1,23 @@
+.page {
+  min-height: 100vh;
+}
+
+.common {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+navigator.newBill {
+  position: fixed;
+  width: 150rpx;
+  height: 150rpx;
+  line-height: 140rpx;
+  padding: 0;
+  border: 1rpx solid rgb(192, 192, 192);
+  border-radius: 50%;
+  right: 30rpx;
+  bottom: 30rpx;
+  text-align: center;
+  font-size: 1.5em;
+}

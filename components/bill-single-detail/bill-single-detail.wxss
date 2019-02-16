@@ -1,0 +1,12 @@
+.bill-single-detail{
+  display: flex;
+  text-align: center;
+}
+
+.amount{
+  flex:1;
+}
+
+.time{
+  flex:4;
+}
