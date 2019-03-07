@@ -1,0 +1,35 @@
+.wrapper{
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.initinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:30rpx;
+}
+
+.avatar{
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.choice{
+  display: flex;
+  align-items: center;
+  padding: 60rpx;
+}
+
+.reject{
+  padding: 14px;
+  color: rgb(192, 192, 192)
+}
+
+button::after{
+  border: none;
+}

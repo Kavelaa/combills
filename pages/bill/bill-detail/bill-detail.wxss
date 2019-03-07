@@ -1,24 +1,58 @@
-.name {
-  font-size: 2em;
-  padding:30rpx;
-  text-align: center;
+.billinfo {
+  height: 21vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.detail {
+.billbin {
   display: flex;
   flex-direction: column;
 }
 
-navigator.newBill {
-  position: fixed;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  bottom: 30rpx;
-  width: 150rpx;
-  height: 150rpx;
-  line-height: 140rpx;
-  padding: 0;
+.billname{
+  font-size: 2em;
+  text-align: center;
+}
+
+.userinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.initinfo{
+  display:flex;
+  align-items: center;
+  padding:10rpx 0;
+}
+
+.detail {
+  height: 65vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.initinfo-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 20rpx 0 0;
+  border-radius: 50%;
+}
+
+navigator.group{
+  color:rgb(192, 192, 192);
+  font-size: .7em;
+}
+
+navigator.new-bill {
+  margin: 20rpx auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100rpx;
+  height: 100rpx;
   border: 1rpx solid rgb(192, 192, 192);
   border-radius: 30%;
   text-align: center;

@@ -1,9 +1,19 @@
-<navigator class="bill-intro" url="bill-detail/bill-detail" bindtap="toBillDetail">
+<view class="bill-intro" bindtap="toBillDetail" hover-class="hover">
+  <view class="notice">
+    <text wx:if="{{!confirm}}">?</text>
+  </view>
   <view class="left">
     <text class="name">{{bill.name}}</text>
-    <text class="update-time">最后确认时间:{{bill.details[0].intelTime}}</text>
+    <block wx:if="{{bill.details[0].endTime}}">
+      <text class="update-time">最后确认账单时间:</text>
+      <text class="update-time">{{bill.details[0].endTime}}</text>
+    </block>
+    <block wx:elif="{{bill.details[0].startTime}}">
+      <text class="update-time">最新待确认账单时间:</text>
+      <text class="update-time">{{bill.details[0].startTime}}</text>
+    </block>
   </view>
   <view class="right">
     <text>{{bill.allCost}}元</text>
   </view>
-</navigator>
+</view>

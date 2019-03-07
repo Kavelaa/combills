@@ -1,0 +1,12 @@
+<view class='wrapper'>
+  <text>是否加入</text>
+  <view class='initinfo'>
+    <image src='{{share.avatar}}' class='avatar'></image>
+    <text>{{share.name}}</text>
+  </view>
+  <text>的账单?</text>
+  <view class='choice'>
+    <button open-type='getUserInfo' bindgetuserinfo='agree'>是</button>
+    <text bindtap='reject' class='reject'>否</text>
+  </view>
+</view>

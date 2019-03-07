@@ -1,0 +1,8 @@
+<view class='wrapper sup'>
+  <text>{{bill.name}}</text>
+  <view class='wrapper'>
+    <image class='userinfo-avatar' src='{{bill.group[bill.initId].avatar}}'></image>
+    <text>{{bill.group[bill.initId].name}}</text>
+  </view>
+  <view hover-class='hover' bindtap='recover'>恢复</view>
+</view>

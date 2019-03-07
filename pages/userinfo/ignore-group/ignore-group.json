@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "ignore-bill" : "/components/ignore-bill/ignore-bill"
+  },
+  "navigationBarTitleText": "忽略组"
+}

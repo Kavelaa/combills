@@ -2,22 +2,62 @@ const app = getApp()
 const util = require('../../../utils/util')
 
 Page({
-  bindSubmit: function(e) {
+  data: {
+    disabled: true
+  },
+  bindSubmit(e) {
     const time = Date.now()
-    const bill = {
-      name: e.detail.value.name,
-      details: [{
-        amount: Number(e.detail.value.amount)
-      }]
+    const id = app.globalData.id
+
+    if (e.detail.value.name) {
+      const bill = {
+        name: e.detail.value.name,
+        allCost: 0,
+        initId: id,
+        initTime: time,
+        group: {},
+        details: []
+      }
+      Object.defineProperty(bill.group, id, {
+        value: {
+          name: app.globalData.userInfo.nickName,
+          avatar: app.globalData.userInfo.avatarUrl,
+          joinTime: util.formatTime(new Date(time))
+        },
+        enumerable: true, //被对象包裹的对象，不强调以下属性，就会默认为false，存入缓存调用JSON.stringfy会忽略该属性
+        writable: true,
+        configurable: true
+      })
+      app.globalData.bills.unshift(bill)
+      app.globalData.billIndex = 0
+      wx.setStorageSync('bills', app.globalData.bills)
+      wx.request({
+        url: 'https://res.kavelaa.work/new',
+        method: 'POST',
+        data: {
+          bill: bill
+        }
+      })
+      console.log(app.globalData)
+      wx.redirectTo({
+        url: '../bill-detail/bill-detail'
+      })
+    } else {
+      wx.showToast({
+        title: '请输入账单名称',
+        icon: 'none'
+      })
     }
-    bill.allCost = Number(e.detail.value.amount)
-    bill.time = time
-    bill.details[0].intelTime = util.formatTime(new Date(time))
-    app.globalData.bills.unshift(bill)
-    app.globalData.billDetail = bill
-    wx.setStorageSync('bills', app.globalData.bills)
-    wx.redirectTo({
-      url: '../bill-detail/bill-detail'
-    })
+  },
+  input(e) {
+    if (e.detail.value !== '') {
+      this.setData({
+        disabled: false
+      })
+    } else {
+      this.setData({
+        disabled: true
+      })
+    }
   }
 })

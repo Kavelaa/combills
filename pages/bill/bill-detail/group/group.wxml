@@ -1,0 +1,11 @@
+<view class='page'>
+  <block wx:for='{{groupArr}}' wx:for-item='user' wx:key='joinTime'>
+    <view class='wrapper'>
+      <view class='user-info'>
+        <image class='avatar' src='{{user.avatar}}'></image>
+        <text>{{user.name}}</text>
+      </view>
+      <view>{{user.joinTime}}</view>
+    </view>
+  </block>
+</view>

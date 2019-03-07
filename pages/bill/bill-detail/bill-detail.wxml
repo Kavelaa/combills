@@ -1,11 +1,21 @@
 <view>
-  <view class='name'>
-    <text >{{bill.name}}</text>
+  <view class='billinfo'>
+    <view class='billbin'>
+      <text class='billname'>{{bill.name}}</text>
+      <text class='allcost'>总消费：{{bill.allCost}}元</text>
+    </view>
+    <view class='userinfo'>
+      <view class='initinfo'>
+        <image class="initinfo-avatar" src="{{initInfo.avatar}}" mode="cover"></image>
+        <text>{{initInfo.name}}</text>
+      </view>
+      <navigator class='group' url='group/group'>查看用户组</navigator>
+    </view>
   </view>
   <view class='detail'>
-    <block wx:for='{{bill.details}}' wx:for-item='detail' wx:key='{{index}}'>
-      <bill-single-detail detail='{{detail}}'></bill-single-detail>
+    <block wx:for='{{bill.details}}' wx:for-item='detail' wx:key='startTime'>
+      <bill-single-detail detail='{{detail}}' index='{{index}}'></bill-single-detail>
     </block>
   </view>
-  <navigator class='newBill' url='new-bill-detail/new-bill-detail'>+</navigator>
+  <navigator class='new-bill' url='new-bill-detail/new-bill-detail'>+</navigator>
 </view>

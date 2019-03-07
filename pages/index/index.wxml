@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始 </button>
+    <button wx:if="{{appear}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始 </button>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <text>欢迎使用人人账单</text>
   </view>
 </view>

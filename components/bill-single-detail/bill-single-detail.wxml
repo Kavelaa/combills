@@ -1,4 +1,30 @@
-<view class='bill-single-detail'>
-  <text class='amount'>{{detail.amount}}元</text>
-  <text class='time'>{{detail.intelTime}}</text>
+<view bindtap='toDetailOpinion' class='bill-single-detail color{{detail.state}}' hover-class='hover'>
+  <view class='detail-state'>
+    <view class='master-info'>
+      <image class="masterinfo-avatar" src="{{masterInfo.avatar}}" mode="cover"></image>
+      <text>{{masterInfo.name}}</text>
+    </view>
+    <view class='confirm-info'>
+      <block wx:if='{{detail.state}}'>
+        <text style='color:green;' wx:if='{{detail.state === 1}}'>✔</text>
+        <text style='color:red;' wx:else>✖</text>
+      </block>
+      <block wx:elif='{{detail.opinion[id].state}}'>
+        <text wx:if='{{detail.opinion[id].state === 1}}'>已确认</text>
+        <text wx:else>已拒绝</text>
+      </block>
+    </view>
+  </view>
+  <view class='detail-memo' wx:if='{{detail.memo}}'>
+    <text>备注信息：{{detail.memo}}</text>
+  </view>
+  <view class='detail-info'>
+    <text style='font-size: 1rem;'>{{detail.amount}}元</text>
+    <text style='color:rgb(128,128,128)'>{{detail.startTime}}</text>
+    <text>{{detail.endTime}}</text>
+  </view>
+  <view class='confirm-state' wx:if='{{!(detail.state || detail.opinion[id].state)}}'>
+    <text catchtap='agree' class='agree'>确认</text>
+    <text catchtap='reject' class='reject'>拒绝</text>
+  </view>
 </view>

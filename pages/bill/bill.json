@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "bill-intro":"/components/bill-intro/bill-intro"
-    }
+  },
+  "enablePullDownRefresh": true
 }

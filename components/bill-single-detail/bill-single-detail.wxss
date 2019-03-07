@@ -1,12 +1,73 @@
-.bill-single-detail{
+.bill-single-detail {
   display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 710rpx;
+  margin: 0 auto 10rpx;
+  padding: 20rpx 30rpx;
+  border: 1rpx solid rgb(192, 192, 192);
+  border-radius: 12rpx;
   text-align: center;
 }
 
-.amount{
-  flex:1;
+.hover {
+  opacity: .65
 }
 
-.time{
-  flex:4;
+.color1 {
+  background-color: rgba(128, 255, 128, 0.15);
+  border: none;
+}
+
+.color-1 {
+  background-color: rgba(255, 128, 128, 0.15);
+  border: none;
+}
+
+.detail-state {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+
+.master-info {
+  display: flex;
+  align-items: center;
+  font-size: .8em;
+}
+
+.masterinfo-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
+
+.detail-memo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10rpx 0;
+  font-size: 0.7em;
+}
+
+.confirm-state {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.agree {
+  margin-right: 10rpx;
+}
+
+.reject {
+  font-size: 0.7em;
+  color: rgb(192, 192, 192);
 }

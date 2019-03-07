@@ -2,5 +2,6 @@
   "usingComponents": {
     "bill-single-detail": "/components/bill-single-detail/bill-single-detail"
   },
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "账单信息"
 }

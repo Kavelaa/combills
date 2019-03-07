@@ -2,12 +2,8 @@
   <form bindsubmit='bindSubmit'>
     <view class='wrapper'>
       <text>账单名</text>
-      <input name='name' class='input' placeholder='输入账单名'></input>
+      <input name='name' class='input' placeholder='输入账单名' bindinput='input'></input>
     </view>
-    <view class='wrapper'>
-      <text>初次消费额</text>
-      <input name='amount' class='input' type='digit' placeholder='本次消费'></input>
-    </view>
-    <button class='button' form-type='submit'>确定</button>
+    <button class='button' form-type='submit' disabled='{{disabled}}'>确定</button>
   </form>
 </view>

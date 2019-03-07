@@ -1,0 +1,24 @@
+.page{
+  padding: 40rpx;
+  font-size: .75em;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 20rpx;
+  border-radius: 50%;
+}

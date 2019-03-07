@@ -1,51 +1,62 @@
 //app.js
 App({
   onLaunch: function() {
+    const logs = wx.getStorageSync('logs') || []
+    const blackList = wx.getStorageSync('blackList') || []
+
     wx.hideTabBar() //在不明确是否已获取用户信息情况下，先不显示底部导航栏
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    var bills = wx.getStorageSync('bills') || []
-    
-    logs.unshift(Date.now())
+
+    logs.unshift(Date.now()) //本地登录记录
     wx.setStorageSync('logs', logs)
-    console.log(this.globalData)
-    this.globalData.bills = bills
 
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
+        if (res.code) {
+          // 发起网络请求
+          wx.request({
+            url: 'https://res.kavelaa.work',
+            data: {
+              code: res.code
+            },
             success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-              wx.switchTab({
-                url: '../bill/bill',
+              this.globalData.id = res.data.openid
+              this.globalData.bills = res.data.bills.filter(bill => {   //黑名单过滤
+                let flag = 1
+                for (let i = 0; i < blackList.length; i++) {
+                  if (bill.initTime === blackList[i].initTime) {
+                    flag = 0
+                    break
+                  }
+                }
+                if (flag) {
+                  return bill
+                }
               })
-              wx.showTabBar({
-                //获得用户信息成功，显示底部导航栏  
-              })
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+              if (this.billsCallback) {   //两个回调，处理App异步获取账单较慢带来的问题
+                this.billsCallback()
               }
+              if (this.shareCallback) {
+                this.shareCallback()
+              }
+              wx.setStorageSync('bills', res.data.bills) //备份账单到本地缓存
+              console.log(this.globalData)
+            },
+            fail: () => {
+              let bills = wx.getStorageSync('bills') || []
+              this.globalData.bills = bills //如果服务器出错则采用本地缓存
             }
           })
+        } else {
+          console.log('登录失败！' + res.errMsg)
         }
       }
     })
   },
   globalData: {
     userInfo: null,
-    bills: []
+    id: null,
+    bills: null
   }
 })

@@ -1,0 +1,14 @@
+<view>
+  <block wx:for='{{idArr}}' wx:for-item='id'>
+    <view class='wrapper sup color{{detail.opinion[id].state}}'>
+      <view class='wrapper'>
+        <image class='avatar' src='{{group[id].avatar}}'></image>
+        <text>{{group[id].name}}</text>
+      </view>
+      <text>{{detail.opinion[id].time}}</text>
+      <text wx:if='{{!detail.opinion[id].state}}' style='color: black;'>❓</text>
+      <text wx:elif='{{detail.opinion[id].state === 1}}' style='color:green;'>✔</text>
+      <text wx:elif='{{detail.opinion[id].state === -1}}' style='color:red;'>✖</text>
+    </view>
+  </block>
+</view>

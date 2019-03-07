@@ -1,15 +1,19 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/userinfo/logs/logs",
     "pages/userinfo/userinfo",
     "pages/bill/bill",
     "pages/bill/new/new",
     "pages/bill/bill-detail/bill-detail",
-    "pages/bill/bill-detail/new-bill-detail/new-bill-detail"
+    "pages/bill/bill-detail/new-bill-detail/new-bill-detail",
+    "pages/share-solve/share-solve",
+    "pages/bill/bill-detail/group/group",
+    "pages/userinfo/ignore-group/ignore-group",
+    "pages/bill/bill-detail/detail-opinion/detail-opinion"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "人人账单(dev)",
     "navigationBarTextStyle": "black"
@@ -18,11 +22,15 @@
     "list": [
       {
         "pagePath": "pages/bill/bill",
-        "text": "账单"
+        "text": "账单",
+        "iconPath": "assets/bill-grey.png",
+        "selectedIconPath": "assets/bill-black.png"
       },
       {
         "pagePath": "pages/userinfo/userinfo",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "assets/mine-grey.png",
+        "selectedIconPath": "assets/mine-black.png"
       }
     ],
     "color": "#BEBEBE",

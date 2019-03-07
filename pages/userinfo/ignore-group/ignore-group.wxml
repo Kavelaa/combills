@@ -1,0 +1,6 @@
+<view>
+  <text class='noIgnore' wx:if='{{!(blackList && blackList.length)}}'>忽略组为空</text>
+  <block wx:for='{{blackList}}' wx:for-item='bill' wx:key='initTime'>
+    <ignore-bill bill='{{bill}}' index='{{index}}'></ignore-bill>
+  </block>
+</view>

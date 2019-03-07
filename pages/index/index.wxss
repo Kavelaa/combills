@@ -7,4 +7,5 @@
 
 .usermotto {
   margin-top: 200px;
+  font-size: 1.6em;
 }

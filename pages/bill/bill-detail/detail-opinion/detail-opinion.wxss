@@ -1,0 +1,27 @@
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sup {
+  font-size: 0.75em;
+  padding: 30rpx;
+}
+
+.color1 {
+  background-color: rgba(128, 255, 128, 0.15);
+  border: none;
+}
+
+.color-1 {
+  background-color: rgba(255, 128, 128, 0.15);
+  border: none;
+}
