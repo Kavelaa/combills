@@ -3,5 +3,6 @@
     "bill-single-detail": "/components/bill-single-detail/bill-single-detail"
   },
   "enablePullDownRefresh": true,
-  "navigationBarTitleText": "账单信息"
+  "navigationBarTitleText": "账单信息",
+  "backgroundColor": "#FFD700"
 }

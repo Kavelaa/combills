@@ -1,5 +1,6 @@
 .billinfo {
-  height: 21vh;
+  height: 18vh;
+  background-color: rgb(255, 215, 0);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -8,10 +9,11 @@
 .billbin {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .billname{
-  font-size: 2em;
+  font-size: 1.6em;
   text-align: center;
 }
 
@@ -28,7 +30,9 @@
 }
 
 .detail {
-  height: 65vh;
+  box-sizing: border-box;
+  height: 70vh;
+  padding: 20rpx 0;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -41,13 +45,29 @@
   border-radius: 50%;
 }
 
+.operate {
+  height: 12vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.operate-button {
+  font-size: 0.8em;
+  background-color: rgb(255, 215, 0);
+  margin: 0;
+}
+
+.operate-button::after {
+  border: none;
+}
+
 navigator.group{
-  color:rgb(192, 192, 192);
+  color: rgb(128, 128, 128);
   font-size: .7em;
 }
 
 navigator.new-bill {
-  margin: 20rpx auto 0;
   display: flex;
   align-items: center;
   justify-content: center;

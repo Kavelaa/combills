@@ -1,0 +1,32 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(255, 255, 192, 0.4);
+}
+
+.top {
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.icon {
+  height: 270rpx;
+}
+
+
+.intro {
+  padding: 30rpx;
+  font-size: 0.8em;
+}
+
+navigator.to-declaration {
+  font-size: 0.8em;
+  color: rgb(87, 107, 149);
+}

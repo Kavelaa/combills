@@ -41,16 +41,16 @@ Page({
         detail.memo = e.detail.value.textarea
       }
 
-      billDetail.details.unshift(detail)
       wx.setStorageSync('bills', bills)
       wx.request({
-        url: 'https://res.kavelaa.work',
+        url: 'https://res.kavelaa.work/newdetail',
         method: 'POST',
         data: {
-          bill: billDetail
+          detail: detail,
+          initId: billDetail.initId,
+          initTime: billDetail.initTime
         }
       })
-      console.log(app.globalData)
       wx.navigateBack()
     } else {
       wx.showToast({

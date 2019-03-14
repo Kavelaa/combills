@@ -10,12 +10,14 @@
     "pages/share-solve/share-solve",
     "pages/bill/bill-detail/group/group",
     "pages/userinfo/ignore-group/ignore-group",
-    "pages/bill/bill-detail/detail-opinion/detail-opinion"
+    "pages/bill/bill-detail/detail-opinion/detail-opinion",
+    "pages/userinfo/about/about",
+    "pages/userinfo/about/declaration/declaration"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "white",
-    "navigationBarTitleText": "人人账单(dev)",
+    "navigationBarBackgroundColor": "#FFD700",
+    "navigationBarTitleText": "蜂巢账单",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -23,14 +25,14 @@
       {
         "pagePath": "pages/bill/bill",
         "text": "账单",
-        "iconPath": "assets/bill-grey.png",
-        "selectedIconPath": "assets/bill-black.png"
+        "iconPath": "assets/bill.png",
+        "selectedIconPath": "assets/bill-selected.png"
       },
       {
         "pagePath": "pages/userinfo/userinfo",
         "text": "我的",
-        "iconPath": "assets/mine-grey.png",
-        "selectedIconPath": "assets/mine-black.png"
+        "iconPath": "assets/mine.png",
+        "selectedIconPath": "assets/mine-selected.png"
       }
     ],
     "color": "#BEBEBE",

@@ -7,37 +7,35 @@ Page({
     initInfo: Object
   },
   onShow() {
-    const index = app.globalData.billIndex
-    const initId = app.globalData.bills[index].initId
-    this.setData({
-      bill: app.globalData.bills[index],
-      initInfo: app.globalData.bills[index].group[initId]
-    })
+    wx.startPullDownRefresh()
   },
   onPullDownRefresh() {
+    const billIndex = app.globalData.billIndex
+    const bill = app.globalData.bills[billIndex]
+    const initId = bill.initId
+    const initTime = bill.initTime
+
     wx.request({
-      url: 'https://res.kavelaa.work/fresh',
+      url: 'https://res.kavelaa.work/billfresh',
+      method: 'POST',
       data: {
-        id: app.globalData.id
+        initId: initId,
+        initTime: initTime,
+        billHash: bill.billHash
       },
       success: res => {
-        const blackList = wx.getStorageSync('blackList') || []
-        app.globalData.bills = res.data.bills.filter(bill => { //黑名单过滤
-          let flag = 1
-          for (let i = 0; i < blackList.length; i++) {
-            if (bill.initTime === blackList[i].initTime) {
-              flag = 0
-              break
-            }
-          }
-          if (flag) {
-            return bill
-          }
-        })
+        if (res.data.bill) {
+          app.globalData.bills[billIndex] = res.data.bill
+          console.log('fls')
+        }
         wx.setStorageSync('bills', app.globalData.bills) //备份账单到本地缓存
+        this.setData({
+          bill: app.globalData.bills[billIndex],
+          initInfo: app.globalData.bills[billIndex].group[initId]
+        }, () => {
+          wx.stopPullDownRefresh()
+        })
         console.log(app.globalData)
-        wx.stopPullDownRefresh()
-        this.onShow()
       }
     })
   },

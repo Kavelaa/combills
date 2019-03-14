@@ -2,8 +2,11 @@
   <form bindsubmit='bindSubmit'>
     <view class='wrapper'>
       <text>消费额</text>
-      <input name='amount' class='input' type='digit' placeholder='本次消费' bindinput='input'></input>
-      <textarea name='textarea' class='textarea' placeholder='在此填写备注（如该笔明细产生原因）' auto-height='true'/>
+      <view class='input-wrapper'>
+        <text>￥</text>
+        <input name='amount' class='input' type='digit' placeholder='本次消费' focus='true' bindinput='input'></input>
+      </view>
+      <textarea name='textarea' class='textarea' placeholder='在此填写备注（如该笔明细产生原因）' auto-height='true' show-confirm-bar='{{false}}'/>
     </view>
     <button class='button' form-type='submit' disabled='{{disabled}}'>确定</button>
   </form>

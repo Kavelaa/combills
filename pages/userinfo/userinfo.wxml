@@ -3,8 +3,12 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <text>{{userInfo.nickName}}</text>
   </view>
-  <navigator class='ignore-group' url='ignore-group/ignore-group'>
+  <navigator class='wrapper' url='ignore-group/ignore-group'>
     <text>忽略组</text>
-    <text>></text>
+    <text style='color:rgb(192,192,192)'>></text>
+  </navigator>
+  <navigator class='wrapper' url='about/about'>
+    <text>关于</text>
+    <text style='color:rgb(192,192,192)'>></text>
   </navigator>
 </view>

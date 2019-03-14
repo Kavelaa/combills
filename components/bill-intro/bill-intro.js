@@ -10,23 +10,32 @@ Component({
     editMode: Boolean
   },
   data: {
-    confirm: true
+    confirm: null,
+    noStateIs0: null,
+    unconfirmDetails: null
   },
   observers: {
-    'bill': function (bill) {
+    'bill': function(bill) {
       const id = app.globalData.id
-      for (let i = 0; i < bill.details.length; i++) {
-        if (bill.details[i].state === 0) {
-          if (bill.details[i].opinion[id].state === 0) {
-            this.setData({
-              confirm: false
-            })
-            return
-          }
+      let flag = true
+      let noStateIs0 = true
+      let unconfirmDetails = []
+
+      bill.details.forEach(detail => {
+        if (detail.state === 0) {
+          noStateIs0 = false
+        } else {
+          return
         }
-      }
+        if (detail.opinion[id].state === 0) {
+          unconfirmDetails.push(detail)
+          flag = false
+        }
+      })
       this.setData({
-        confirm: true
+        confirm: flag,
+        noStateIs0: noStateIs0,
+        unconfirmDetails: unconfirmDetails
       })
     }
   },

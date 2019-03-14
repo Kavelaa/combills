@@ -57,12 +57,16 @@ Page({
   },
   agree(e) {
     const id = app.globalData.id
-    const userInfo = e.detail.userInfo
     const bills = app.globalData.bills
     const share = app.globalData.share
 
-    if (userInfo) {
+    if (e.detail.userInfo) {
+      const userInfo = e.detail.userInfo
+      
       app.globalData.userInfo = userInfo
+      wx.showLoading({
+        title: '等待信息'
+      })
       wx.request({
         url: 'https://res.kavelaa.work/share',
         method: 'POST',
@@ -77,6 +81,7 @@ Page({
         success: res => {
           console.log(res)
           bills.unshift(res.data.bill)
+          wx.hideLoading()
           wx.switchTab({
             url: '../bill/bill'
           })

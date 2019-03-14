@@ -6,17 +6,24 @@ Page({
     anime: Object,
     bills: []
   },
-  onShow: function() {
+  onLoad() {
+    wx.showLoading({
+      title: '等待信息'
+    })
     app.billsCallback = () => { //账单页如果在获取账单之前加载，需要设置一个回调进行操作
       if (app.globalData.bills[0]) {
         this.setData({
           noBill: false,
           bills: app.globalData.bills
+        }, () => {
+          wx.hideLoading()
         })
         console.log(app.globalData)
       } else {
         this.setData({
           noBill: true
+        }, ()=> {
+          wx.hideLoading()
         })
       }
     }
@@ -24,8 +31,26 @@ Page({
       this.setData({
         noBill: false,
         bills: app.globalData.bills
+      }, () => {
+        wx.hideLoading()
       })
       console.log(app.globalData)
+    } else {
+      this.setData({
+        noBill: true
+      }, () => {
+        if (app.globalData.bills) {
+          wx.hideLoading()
+        }
+      })
+    }
+  },
+  onShow() {
+    if (app.globalData.bills && app.globalData.bills[0]) {
+      this.setData({
+        noBill: false,
+        bills: app.globalData.bills
+      })
     } else {
       this.setData({
         noBill: true
@@ -53,7 +78,6 @@ Page({
           }
         })
         wx.setStorageSync('bills', app.globalData.bills) //备份账单到本地缓存
-        console.log(app.globalData)
         wx.stopPullDownRefresh()
         this.onShow()
       }

@@ -1,18 +1,16 @@
 <view class="page">
   <view wx:if="{{noBill}}" class="common">
     <text>还没有账单，去新建一个吧！</text>
-    <text style='color:rgb(192,192,192); font-size:.7em;'>如果你确定你有账单，那么你已经将账单放入了忽略组，要看到该账单，请到“我的-忽略组”中恢复。</text>
+    <text style='color:rgb(192,192,192); font-size:.7em;'>如果你确定你有账单，那么你已经将账单放入了忽略组，要看到该账单，请到“我的-忽略组”中恢复后，到此页面下拉刷新即可看到。</text>
   </view>
   <view wx:else>
     <checkbox-group bindchange='bindChange'>
       <block wx:for="{{bills}}" wx:for-item="bill" wx:key="initTime">
-        <checkbox style='margin-left:30rpx;' wx:if="{{editMode}}" value="{{index}}" />
+        <checkbox style='margin-left:20rpx;' wx:if="{{editMode}}" value="{{index}}" />
         <bill-intro bill="{{bill}}" index="{{index}}" editMode="{{editMode}}" bindlongpress="longPress"></bill-intro>
       </block>
     </checkbox-group>
   </view>
-  <view class='bill-operate'>
     <view class='delete-bill' wx:if='{{editMode}}' hover-class='hover' bindtap='deleteBill'>忽略</view>
-    <view class='new-bill' hover-class='hover' bindtap='tap' animation='{{anime}}'></view>
-  </view>
+    <view class='new-bill' bindtap='tap' animation='{{anime}}'></view>
 </view>

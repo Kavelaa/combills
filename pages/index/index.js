@@ -29,6 +29,7 @@ Page({
               wx.showTabBar({
                 //已获取用户信息，显示底部导航栏
               })
+              wx.hideLoading()
               wx.switchTab({ //已获取用户信息，将页面从引导页切换到账单页面
                 url: '../bill/bill',
               })

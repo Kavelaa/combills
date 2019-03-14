@@ -1,9 +1,10 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="usermotto">
+    <image class='icon' mode='aspectFit' src='/assets/comb.png'/>
+    <text>欢迎使用蜂巢账单</text>
+  </view>
   <view class="userinfo">
     <button wx:if="{{appear}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始 </button>
-  </view>
-  <view class="usermotto">
-    <text>欢迎使用人人账单</text>
   </view>
 </view>

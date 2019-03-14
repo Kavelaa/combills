@@ -2,7 +2,7 @@
   <view class='billinfo'>
     <view class='billbin'>
       <text class='billname'>{{bill.name}}</text>
-      <text class='allcost'>总消费：{{bill.allCost}}元</text>
+      <text class='allcost'>总消费：￥{{bill.allCost}}</text>
     </view>
     <view class='userinfo'>
       <view class='initinfo'>
@@ -17,5 +17,8 @@
       <bill-single-detail detail='{{detail}}' index='{{index}}'></bill-single-detail>
     </block>
   </view>
-  <navigator class='new-bill' url='new-bill-detail/new-bill-detail'>+</navigator>
+  <view class='operate'>
+    <button open-type='share' class='operate-button'>邀请他人加入账单</button>
+    <navigator class='new-bill' url='new-bill-detail/new-bill-detail'>+</navigator>
+  </view>
 </view>

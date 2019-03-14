@@ -2,7 +2,7 @@
   padding-top: 30rpx;
   min-height: 100vh;
   box-sizing: border-box;
-  background-color: rgba(192, 192, 192, 0.13);
+  background-color: rgba(255, 255, 192, 0.4);
 }
 
 .common {
@@ -15,37 +15,48 @@
   justify-content: center;
 }
 
-.bill-operate {
-  position: fixed;
-  right: 30rpx;
-  bottom: 30rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .new-bill {
+  position: fixed;
+  right: 60rpx;
+  bottom: 30rpx;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAHpJREFUaEPt2TEOAyEMAEGT//85aVKha49i2CndoJUlClhzzncfzMzaB2/47ANRkYoiFUUqilQUqShSUaSiSEWRiiIVRSqKVKx5ftmmXLHJIhVXRB75Ovt7uuCOnH/FJotUFKkoUlGkokhFkYoiFUUqilQUqShSUaTiB2MGA29srRyoAAAAAElFTkSuQmCC);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 30%;
-  width: 150rpx;
+  width: 86.7rpx;
   height: 150rpx;
   padding: 0;
-  border: 1rpx solid rgb(192, 192, 192);
-  border-radius: 50%;
-  right: 30rpx;
-  bottom: 30rpx;
   font-size: 1.5em;
-  background-color: white;
+  background-color: rgb(255, 215, 0);
+}
+
+.new-bill::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 86.7rpx;
+  width: 0;
+  border-width: 75rpx 44rpx;
+  border-style: solid;
+  border-color: transparent rgb(255, 215, 0) transparent transparent;
+}
+
+.new-bill::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 86.7rpx;
+  width: 0;
+  border-width: 75rpx 44rpx;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(255, 215, 0);
 }
 
 .delete-bill {
-  padding: 20rpx;
-  margin-bottom: 20rpx;
-  border: 1rpx solid rgb(192, 192, 192);
-  border-radius: 10rpx;
-  background-color: white;
+  position: fixed;
+  right: 36rpx;
+  bottom: 210rpx;
+  color: rgb(255, 215, 0);
 }
 
 .hover {

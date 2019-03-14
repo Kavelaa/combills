@@ -16,7 +16,8 @@ Page({
         initId: id,
         initTime: time,
         group: {},
-        details: []
+        details: [],
+        billHash: 'init'
       }
       Object.defineProperty(bill.group, id, {
         value: {
@@ -28,9 +29,8 @@ Page({
         writable: true,
         configurable: true
       })
-      app.globalData.bills.unshift(bill)
       app.globalData.billIndex = 0
-      wx.setStorageSync('bills', app.globalData.bills)
+      app.globalData.bills.unshift(bill)
       wx.request({
         url: 'https://res.kavelaa.work/new',
         method: 'POST',

@@ -1,0 +1,10 @@
+<view class='page'>
+  <view class='top'>
+    <image class='icon' mode='aspectFit' src='/assets/comb.png'/>
+    <text>蜂巢账单</text>
+  </view>
+  <view class='intro'>
+    <text>参照区块链思想，以独特的账单意见属性为依托，消除需要被信任的中心记账人，为陌生人之间构造信任的桥梁。专门为处于特殊场景下的用户群体提供参考性的账单明细信息而开发的试验性作品。</text>
+  </view>
+  <navigator class='to-declaration' url='declaration/declaration'>免责声明和联系作者</navigator>
+</view>

@@ -16,12 +16,12 @@
     </view>
   </view>
   <view class='detail-memo' wx:if='{{detail.memo}}'>
-    <text>备注信息：{{detail.memo}}</text>
+    <text>备注：{{detail.memo}}</text>
   </view>
   <view class='detail-info'>
-    <text style='font-size: 1rem;'>{{detail.amount}}元</text>
-    <text style='color:rgb(128,128,128)'>{{detail.startTime}}</text>
-    <text>{{detail.endTime}}</text>
+    <text style='font-size: 1rem;'>￥{{detail.amount}}</text>
+    <text style='color:rgb(128,128,128)'>发起时间：{{detail.startTime}}</text>
+    <text wx:if='{{detail.endTime}}'>确认时间：{{detail.endTime}}</text>
   </view>
   <view class='confirm-state' wx:if='{{!(detail.state || detail.opinion[id].state)}}'>
     <text catchtap='agree' class='agree'>确认</text>

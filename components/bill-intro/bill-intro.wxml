@@ -1,19 +1,34 @@
 <view class="bill-intro" bindtap="toBillDetail" hover-class="hover">
-  <view class="notice">
-    <text wx:if="{{!confirm}}">?</text>
-  </view>
-  <view class="left">
+  <view class="bill-info">
     <text class="name">{{bill.name}}</text>
-    <block wx:if="{{bill.details[0].endTime}}">
-      <text class="update-time">最后确认账单时间:</text>
-      <text class="update-time">{{bill.details[0].endTime}}</text>
-    </block>
-    <block wx:elif="{{bill.details[0].startTime}}">
-      <text class="update-time">最新待确认账单时间:</text>
-      <text class="update-time">{{bill.details[0].startTime}}</text>
-    </block>
+    <text>￥{{bill.allCost}}</text>
   </view>
-  <view class="right">
-    <text>{{bill.allCost}}元</text>
+  <view wx:if='{{bill.details[0]}}' class='bill-news'>
+    <block wx:for='{{unconfirmDetails}}' wx:for-item='detail' wx:key='startTime'>
+      <view class='newest-detail'>
+        <view class='master-wrapper'>
+          <image class='avatar' src='{{bill.group[detail.master].avatar}}' />
+          <text style='font-size: 0.75em;'>{{bill.group[detail.master].name}}</text>
+        </view>
+        <text style='font-size: 0.75em;'>￥（+{{detail.amount}}）</text>
+      </view>
+    </block>
+    <view class='detail-state'>
+      <view class="notice">
+        <text wx:if='{{!confirm}}'>? 待确认</text>
+        <text wx:elif='{{!noStateIs0}}'>··· 等待其他意见</text>
+        <text wx:else style='color:green;'>✔ 暂无明细待处理</text>
+      </view>
+      <view class='time-wrapper'>
+        <block wx:if="{{bill.details[0].endTime}}">
+          <text class="minor-text">最后确认明细时间:</text>
+          <text class="minor-text">{{bill.details[0].endTime}}</text>
+        </block>
+        <block wx:elif="{{bill.details[0].startTime}}">
+          <text class="minor-text">最新待确认明细时间:</text>
+          <text class="minor-text">{{bill.details[0].startTime}}</text>
+        </block>
+      </view>
+    </view>
   </view>
 </view>

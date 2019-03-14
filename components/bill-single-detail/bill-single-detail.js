@@ -34,55 +34,50 @@ Component({
         url: 'detail-opinion/detail-opinion'
       })
     },
-    update(bill) {
+    agree() {
+      let opinion = {
+        state: 1,
+        time: util.formatTime(new Date())
+      }
+
+      this.update(opinion)
+    },
+    reject() {
+      let opinion = {
+        state: -1,
+        time: util.formatTime(new Date())
+      }
+
+      this.update(opinion)
+    },
+    update(op) {
+      const id = app.globalData.id
+      const bill = app.globalData.bills[app.globalData.billIndex]
+      const detailIndex = this.properties.index
+      const initId = bill.initId
+      const initTime = bill.initTime
+      const master = this.properties.detail.master
+      const startTime = this.properties.detail.startTime
+
+      wx.showLoading({
+        title: '正在同步至蜂巢',
+      })
       wx.request({
         url: 'https://res.kavelaa.work',
         method: 'POST',
         data: {
-          bill: bill
+          id: id,
+          initId: initId,
+          initTime: initTime,
+          master: master,
+          startTime: startTime,
+          opinion: op
+        },
+        success: () => {
+          wx.startPullDownRefresh()
+          wx.hideLoading()
         }
       })
-    },
-    agree() {
-      const id = app.globalData.id
-      const billIndex = app.globalData.billIndex
-      const bill = app.globalData.bills[billIndex]
-      const detailIndex = this.properties.index
-      const opinion = bill.details[detailIndex].opinion
-
-      opinion[id] = {
-        state: 1,
-        time: util.formatTime(new Date())
-      }
-      if (2 * Object.keys(opinion).filter(val => {
-          if (opinion[val].state === 1) return val
-        }).length > Object.keys(opinion).length) {
-        bill.details[detailIndex].state = 1
-        bill.details[detailIndex].endTime = util.formatTime(new Date())
-        bill.allCost += bill.details[detailIndex].amount
-      }
-      this.update(bill)
-      getCurrentPages()[1].onShow()
-    },
-    reject() {
-      const id = app.globalData.id
-      const billIndex = app.globalData.billIndex
-      const bill = app.globalData.bills[billIndex]
-      const detailIndex = this.properties.index
-      const opinion = bill.details[detailIndex].opinion
-
-      opinion[id] = {
-        state: -1,
-        time: util.formatTime(new Date())
-      }
-      if (2 * Object.keys(opinion).filter(val => {
-          if (opinion[val].state === -1) return val
-        }).length >= Object.keys(opinion).length) {
-        bill.details[detailIndex].state = -1
-        bill.details[detailIndex].endTime = util.formatTime(new Date())
-      }
-      this.update(bill)
-      getCurrentPages()[1].onShow()
     }
   }
 })
